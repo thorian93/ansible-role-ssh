@@ -1,0 +1,17 @@
+---
+- name: Preflight - Fail if target host is not stable for this Role.
+  fail:
+    msg: "This role is not stable for the target operating system, {{ ansible_distribution }} {{ ansible_distribution_major_version }}."
+  when: (ansible_distribution is not defined) or
+        (ansible_distribution_version is not defined) or
+        (ansible_distribution+" "+ansible_distribution_major_version not in ssh_stable_os)
+
+- name: Configure SSHD.
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    line: "{{ item.line }}"
+    regexp: "{{ item.regexp }}"
+    state: present
+    backup: true
+  with_items: "{{ ssh_sshd_config_options }}"
+  notify: restart ssh
