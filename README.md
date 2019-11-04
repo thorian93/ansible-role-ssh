@@ -15,9 +15,6 @@ No special requirements; note that this role requires root access, so either run
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-# Security Server Role Documentation:
-The following is a list of currently available variables for the security server role and some example values.
-
     sshd_port: 22
 
 Configure the port sshd listens on.
@@ -56,6 +53,10 @@ None.
       become: yes
       roles:
         - ansible-role-ssh
+
+## Contributing
+
+Please feel free to open issues if you find any bugs, problems or if you see room for improvement. Also feel free to contact me anytime if you want to ask or discuss something.
 
 ## Disclaimer
 
