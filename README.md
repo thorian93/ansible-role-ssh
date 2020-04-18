@@ -1,6 +1,6 @@
 # Ansible Role: SSH
 
-This role configures sshd on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
+This role configures sshd on RHEL/CentOS, Debian/Ubuntu, Fedora and openSUSE servers.
 
 ## Requirements
 
@@ -15,11 +15,19 @@ No special requirements; note that this role requires root access, so either run
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    sshd_port: 22
+    sshd_port: '22'
 
 Configure the port sshd listens on.
 
-    sshd_permit_root_login: "no"
+    sshd_protocol: '2'
+
+Configure the sshd protocol to use. It is **highly** recommended to keep this at version **2**!
+
+    sshd_address_family: 'inet'
+
+Configure the IP address family sshd uses. Can be either `any`, `inet` or `inet6`.
+
+    sshd_permit_root_login: 'no'
 
 Allow login as root user.
 
@@ -27,21 +35,53 @@ Allow login as root user.
 
 Allow password authentication.
 
-    sshd_strict_mode: "yes"
+    sshd_permit_empty_passwords: 'no'
+
+Allow empty passwords for ssh login.
+
+    sshd_challenge_response_auth: 'no'
+
+Enable challenge response authentication.
+
+    sshd_gss_api_authentication: 'no'
+
+Enable GSS API authentication.
+
+    sshd_strict_mode: 'yes'
 
 Use sshd strict mode.
 
     sshd_allowed_users: []
 
-Allowed users for ssh login. **Currently not implemented!**
+Allowed users for ssh login. **Use only if you exactly what you are doing!**
 
-    sshd_allowed_groups: "sshlogin"
+    sshd_allowed_groups: []
 
-Allowed groups for ssh login.
+Allowed groups for ssh login. **Use only if you exactly what you are doing!**
 
     sshd_allow_x11_forwarding: "no"
 
 Allow X11 forwarding.
+
+    sshd_ciphers: []
+
+Explicitly set all ciphers sshd should use.
+
+    sshd_enabled_ciphers: []
+
+Add the listed ciphers to the default ciphers sshd uses.
+
+    sshd_disabled_ciphers: []
+
+Remove the listed ciphers from the default ciphers sshd uses.
+
+    sshd_usedns: 'no'
+
+Disable reverse DNS lookups.
+
+    sshd_print_motd: 'no'
+
+Disable printing of motd.
 
 ## Dependencies
 
