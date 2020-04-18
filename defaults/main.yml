@@ -1,58 +1,36 @@
 ---
 # Support for OSes:
-ssh_stable_os:
-  - Debian 8
+sshd_stable_os:
   - Debian 9
   - Debian 10
-  - Ubuntu 14
   - Ubuntu 16
-  - Ubuntu 18 #?
-  - CentOS 6
+  - Ubuntu 18
   - CentOS 7
-  - Fedora 25
-  - Fedora 26
-  - Fedora 27 #?
-  - Fedora 28 #?
-  - Fedora 29 #?
+  - CentOS 8
   - Fedora 30
+  - Fedora 31
+  - openSUSE Leap 15
+  - openSUSE Leap 42
 
-# Ports
-sshd_port: 22
-sshd_protocol: 2
+# Basic
+sshd_port: '22'
+sshd_protocol: '2'
+sshd_address_family: 'inet'
 
 # Authentification:
-ssh_permit_root_login: "no"
-sshd_permit_password_authentification: "no"
-ssh_permit_empty_passwords: "no"
-ssh_challenge_response_auth: "no"
-ssh_gss_api_authentication: "no"
-#sshd_allowed_users: ""
-sshd_allowed_groups: "sshlogin"
+sshd_permit_root_login: 'no'
+sshd_permit_password_authentification: 'no'
+sshd_permit_empty_passwords: 'no'
+sshd_challenge_response_auth: 'no'
+sshd_gss_api_authentication: 'no'
+sshd_strict_mode: 'yes'
+sshd_allowed_users: []
+sshd_allowed_groups: []
+sshd_ciphers: []
+sshd_enabled_ciphers: []
+sshd_disabled_ciphers: []
 
 # Misc
-sshd_allow_x11_forwarding: "no"
-ssh_usedns: "no"
-
-ssh_sshd_config_options:
-  - line: "Port {{ sshd_port }}"
-    regexp: "(# |^)Port.*"
-  - line: "Protocol {{ sshd_protocol }}"
-    regexp: "(# |^)Protocol.*"
-  - line: "PermitRootLogin {{ ssh_permit_root_login }}"
-    regexp: "(# |^)PermitRootLogin.*"
-  - line: "PasswordAuthentication {{ sshd_permit_password_authentification }}"
-    regexp: "(# |^)PasswordAuthentication.*"
-  - line: "X11Forwarding {{ sshd_allow_x11_forwarding }}"
-    regexp: "(# |^)X11Forwarding.*"
-#  - line: "AllowUsers {{ sshd_allowed_users }}"
-#    regexp: "(# |^)AllowUsers.*"
-  - line: "AllowGroups {{ sshd_allowed_groups }}"
-    regexp: "(# |^)AllowGroups.*"
-  - line: "UseDNS {{ ssh_usedns }}"
-    regexp: "(# |^)UseDNS.*"
-  - line: "PermitEmptyPasswords {{ ssh_permit_empty_passwords }}"
-    regexp: "(# |^)PermitEmptyPasswords.*"
-  - line: "ChallengeResponseAuthentication {{ ssh_challenge_response_auth }}"
-    regexp: "(# |^)ChallengeResponseAuthentication.*"
-  - line: "GSSAPIAuthentication {{ ssh_gss_api_authentication }}"
-    regexp: "(# |^)GSSAPIAuthentication.*"
+sshd_allow_x11_forwarding: 'no'
+sshd_usedns: 'no'
+sshd_print_motd: 'no'

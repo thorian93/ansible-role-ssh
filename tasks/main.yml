@@ -4,14 +4,19 @@
     msg: "This role is not stable for the target operating system, {{ ansible_distribution }} {{ ansible_distribution_major_version }}."
   when: (ansible_distribution is not defined) or
         (ansible_distribution_version is not defined) or
-        (ansible_distribution+" "+ansible_distribution_major_version not in ssh_stable_os)
+        (ansible_distribution+" "+ansible_distribution_major_version not in sshd_stable_os)
+
+- name: Include Derivate specific Variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+  ignore_errors: true
 
 - name: Configure SSHD.
-  lineinfile:
+  template:
+    src: sshd_config.j2
     dest: /etc/ssh/sshd_config
-    line: "{{ item.line }}"
-    regexp: "{{ item.regexp }}"
-    state: present
     backup: true
-  with_items: "{{ ssh_sshd_config_options }}"
-  notify: restart ssh
+    owner: root
+    group: root
+    mode: '0600'
+    validate: /usr/sbin/sshd -t -f %s
+  notify: reload ssh

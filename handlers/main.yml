@@ -3,3 +3,8 @@
   service:
     name: sshd
     state: restarted
+
+- name: reload ssh
+  service:
+    name: sshd
+    state: reloaded
