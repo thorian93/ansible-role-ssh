@@ -1,6 +1,10 @@
 # Ansible Role: SSH
 
-This role configures sshd on RHEL/CentOS, Debian/Ubuntu, Fedora and opensuse servers.
+This role configures sshd on RHEL/CentOS, Debian/Ubuntu, Fedora and openSUSE servers.
+
+[![Ansible Role: SSH](https://img.shields.io/ansible/role/51297?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ssh)
+[![Ansible Role: SSH](https://img.shields.io/ansible/quality/51297?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ssh)
+[![Ansible Role: SSH](https://img.shields.io/ansible/role/d/51297?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ssh)
 
 ## Requirements
 
