@@ -87,6 +87,11 @@ Disable reverse DNS lookups.
 
 Disable printing of motd.
 
+    sshd_banner_file: '/etc/banner'
+    sshd_banner_text: ''
+
+Configure a banner which is displayed prior to login. The file set here will be filled with the text from the respective variable. The content can be multiline, keep the `yaml` syntax in mind.
+
 ## Dependencies
 
 None.

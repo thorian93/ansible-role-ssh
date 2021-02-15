@@ -36,3 +36,5 @@ sshd_disabled_ciphers: []
 sshd_allow_x11_forwarding: 'no'
 sshd_usedns: 'no'
 sshd_print_motd: 'no'
+sshd_banner_file: '/etc/banner'
+sshd_banner_text: ''
