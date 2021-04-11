@@ -92,8 +92,8 @@ StrictModes {{ sshd_strict_mode }}
 #IgnoreRhosts yes
 
 # To disable tunneled clear text passwords, change to no here!
-{% if sshd_permit_password_authentification is defined and sshd_permit_password_authentification|length %}
-PasswordAuthentication {{ sshd_permit_password_authentification }}
+{% if sshd_permit_password_authentication is defined and sshd_permit_password_authentication|length %}
+PasswordAuthentication {{ sshd_permit_password_authentication }}
 {% else %}
 #PasswordAuthentication yes
 {% endif %}

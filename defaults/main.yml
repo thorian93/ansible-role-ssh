@@ -19,15 +19,15 @@ sshd_port: '22'
 sshd_protocol: '2'
 sshd_address_family: 'inet'
 
-# Authentification:
+# Authentication:
 sshd_permit_root_login: 'no'
-sshd_permit_password_authentification: 'no'
+sshd_permit_password_authentication: 'no'
 sshd_permit_empty_passwords: 'no'
 sshd_challenge_response_auth: 'no'
 sshd_gss_api_authentication: 'no'
 sshd_strict_mode: 'yes'
-sshd_allowed_users: []
-sshd_allowed_groups: []
+sshd_allowed_users: [] # Space separated list of users that may login - Read the README on how to use this!
+sshd_allowed_groups: [] # Space separated list of groups that may login - Read the README on how to use this!
 sshd_ciphers: []
 sshd_enabled_ciphers: []
 sshd_disabled_ciphers: []
