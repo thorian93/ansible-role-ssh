@@ -35,7 +35,7 @@ Configure the IP address family sshd uses. Can be either `any`, `inet` or `inet6
 
 Allow login as root user.
 
-    sshd_permit_password_authentification: "no"
+    sshd_permit_password_authentication: "no"
 
 Allow password authentication.
 
@@ -56,12 +56,10 @@ Enable GSS API authentication.
 Use sshd strict mode.
 
     sshd_allowed_users: []
-
-Allowed users for ssh login. **Use only if you exactly what you are doing!**
-
     sshd_allowed_groups: []
 
-Allowed groups for ssh login. **Use only if you exactly what you are doing!**
+Space separated list of users and groups that may login through SSH. **Be advised that both conditions must be true!**  
+For example, if you set `sshd_allowed_users` to `foo`, `foo` can login. If you additionally set `sshd_allowed_groups` to `bar` while `foo` is not a member of `bar`, `foo` will no longer be able to login.
 
     sshd_allow_x11_forwarding: "no"
 
@@ -85,12 +83,12 @@ Disable reverse DNS lookups.
 
     sshd_print_motd: 'no'
 
-Disable printing of motd.
+Disable printing of motd (This does not affect the banner setting below).
 
     sshd_banner_file: '/etc/banner'
     sshd_banner_text: ''
 
-Configure a banner which is displayed prior to login. The file set here will be filled with the text from the respective variable. The content can be multiline, keep the `yaml` syntax in mind.
+Configure a banner which is displayed prior to login. The file set here will be filled with the text from the respective variable. The content can be multiline, but keep the `yaml` syntax in mind (For example use `|` for multiline output).
 
 ## Dependencies
 
