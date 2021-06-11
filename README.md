@@ -12,7 +12,7 @@ No special requirements; note that this role requires root access, so either run
 
     - hosts: foobar
       roles:
-        - role: ansible-role-ssh
+        - role: thorian93.ssh
           become: yes
 
 ## Role Variables
