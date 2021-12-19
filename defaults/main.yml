@@ -36,5 +36,6 @@ sshd_disabled_ciphers: []
 sshd_allow_x11_forwarding: 'no'
 sshd_usedns: 'no'
 sshd_print_motd: 'no'
-sshd_banner_file: '/etc/banner'
+sshd_print_banner: 'no'
+sshd_banner_file: '/etc/banner' # Will be created when a banner text is defined. To use it enable sshd_print_banner.
 sshd_banner_text: ''
