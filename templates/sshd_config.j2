@@ -167,8 +167,10 @@ PrintMotd no
 #ChrootDirectory none
 #VersionAddendum none
 
-{% if sshd_print_motd is defined and sshd_print_motd|length %}
+{% if sshd_print_banner is defined and sshd_print_banner|bool %}
+{% if sshd_banner_file is defined and sshd_banner_file|length %}
 Banner {{ sshd_banner_file }}
+{% endif %}
 {% else %}
 # no default banner path
 #Banner none
