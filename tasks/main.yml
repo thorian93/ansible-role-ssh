@@ -20,6 +20,10 @@
     mode: '0664'
   when: sshd_banner_text is defined and sshd_banner_text | length
 
+- name: Configure Vault Trusted CA.
+  include_tasks: vault-trusted-ca.yml
+  when: sshd_enable_vault_trusted_ca is defined and sshd_enable_vault_trusted_ca | bool
+
 - name: Configure SSHD.
   template:
     src: sshd_config.j2
