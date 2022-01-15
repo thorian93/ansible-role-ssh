@@ -8,6 +8,9 @@ sshd_stable_os:
   - Fedora 30
   - Fedora 31
   - Fedora 32
+  - Fedora 33
+  - Fedora 34
+  - Fedora 35
   - openSUSE Leap 15
   - openSUSE Leap 42
   - Ubuntu 16
