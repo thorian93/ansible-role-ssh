@@ -201,7 +201,7 @@ AllowGroups {{ sshd_allowed_groups }}
 {% endif %}
 
 
-{% if sshd_enable_vault_trusted_ca is defined and sshd_enable_vault_trusted_ca|bool %}
+{% if sshd_vault_trusted_ca_enable is defined and sshd_vault_trusted_ca_enable | bool %}
 # Vault CA Keys
-TrustedUserCAKeys /etc/ssh/{{ vault_ca_cert }}
+TrustedUserCAKeys /etc/ssh/{{ sshd_vault_ca_cert | default('trusted-user-ca-keys.pem')}}
 {% endif %}

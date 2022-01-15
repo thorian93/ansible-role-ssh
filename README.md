@@ -83,27 +83,23 @@ Disable reverse DNS lookups.
 
     sshd_print_motd: 'no'
 
-Disable printing of motd (This does not affect the banner setting below).
+Disable printing of motd (does not affect the banner setting below).
 
     sshd_banner_file: '/etc/banner'
     sshd_banner_text: ''
 
 Configure a banner which is displayed prior to login. The file set here will be filled with the text from the respective variable. The content can be multiline, but keep the `yaml` syntax in mind (For example use `|` for multiline output).
 
-### Role Variables (Vault)
+    sshd_vault_trusted_ca_enable: 'no'
 
-**Disclaimer** This requires a functional [Vault](https://www.vaultproject.io/ "HashiCorp Vault"). instance! This only affects client side.
+Enable to obtain and configure Vault trusted CA certificates.  
+**This requires a functional [HashiCorp Vault](https://www.vaultproject.io/) instance!**
 
-
-    sshd_enable_vault_trusted_ca: 'no'
-
-Enable to obtain and configure Vault trusted CA certificates.
-
-    vault_server: 'https://127.0.0.1:8200'
+    sshd_vault_server: 'https://127.0.0.1:8200'
 
 Domain or IP of Vault instance.
 
-    vault_ca_cert: "trusted-user-ca-keys.pem"
+    sshd_vault_ca_cert: "trusted-user-ca-keys.pem"
 
 Name of the CA certificate. (freely selectable)
 
