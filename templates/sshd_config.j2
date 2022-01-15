@@ -199,3 +199,9 @@ AllowUsers {{ sshd_allowed_users }}
 {% if sshd_allowed_groups is defined and sshd_allowed_groups|length %}
 AllowGroups {{ sshd_allowed_groups }}
 {% endif %}
+
+
+{% if sshd_enable_vault_trusted_ca is defined and sshd_enable_vault_trusted_ca|bool %}
+# Vault CA Keys
+TrustedUserCAKeys /etc/ssh/{{ vault_ca_cert }}
+{% endif %}
