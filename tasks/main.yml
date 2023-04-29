@@ -8,13 +8,13 @@
 
 - name: "Include Derivate specific Variables."
   include_vars: "{{ ansible_os_family }}.yml"
-  ignore_errors: 'true'
+  ignore_errors: true
 
 - name: "Configure Banner."
   template:
     src: banner.j2
     dest: "{{ sshd_banner_file }}"
-    backup: 'false'
+    backup: false
     owner: root
     group: root
     mode: '0664'
@@ -28,7 +28,7 @@
   template:
     src: sshd_config.j2
     dest: /etc/ssh/sshd_config
-    backup: 'true'
+    backup: true
     owner: root
     group: root
     mode: '0600'

@@ -31,6 +31,7 @@ galaxy_info:
         - 33
         - 34
         - 35
+        - 36
     - name: opensuse
       versions:
         - 15.2
@@ -40,3 +41,4 @@ galaxy_info:
         - Xenial
         - Bionic
         - Focal
+        - Jammy

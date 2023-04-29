@@ -1,5 +1,14 @@
 # Ansible Role: SSH
 
+---
+
+## Unmaintained! Moved to collection!
+This role has moved to my [**main** collection](https://github.com/thorian93/main).  
+It is **not** maintained here anymore!  
+Head over to the [collection](https://github.com/thorian93/main) for up to date content.
+
+---
+
 This role configures SSHD on RHEL/CentOS, Debian/Ubuntu, Fedora and openSUSE servers.
 
 [![Ansible Role: SSH](https://img.shields.io/ansible/role/55144?style=flat-square)](https://galaxy.ansible.com/thorian93/ssh)
